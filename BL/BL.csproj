@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analyser.cs" />
+    <Compile Include="EnvelopesAnalyser.cs" />
     <Compile Include="Box.cs" />
     <Compile Include="Envelope.cs" />
     <Compile Include="IComparedObj.cs" />
