@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BL;
+using MainApp;
+using IOHandler;
 
 namespace EnvelopesAnalyser
 {
@@ -11,10 +12,11 @@ namespace EnvelopesAnalyser
     {
         static void Main(string[] args)
         {
+           
+            IO viewer = new IO();
+            ControlApp app = new ControlApp(viewer);
+            app.Start(args);
 
-
-
-            Console.ReadKey();
         }
     }
 }

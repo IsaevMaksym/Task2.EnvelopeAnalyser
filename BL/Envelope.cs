@@ -6,8 +6,21 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public class Envelope : IComparable
+
+    public sealed class Envelope : IComparable
     {
+        public const string ENVELOPE_WIDTH_LENGTH = "Envelope width: {0}, length: {1}";
+
+        #region Private Fields
+
+        private double _width;
+        private double _length;
+
+        #endregion
+
+        public double Width { get => _width; set => _width = value; }
+        public double Length { get => _length; set => _length = value; }
+
         public Envelope(double width, double length)
         {
             this._width = width;
@@ -18,7 +31,6 @@ namespace BL
         {
             int compareResult = -1;
             Envelope other = obj as Envelope;
-            
 
             if (this == other)
             {
@@ -29,20 +41,14 @@ namespace BL
                 compareResult = 1;
             }
 
-
             return compareResult;
         }
 
         public override string ToString()
         {
-            return string.Format("Envelope width: {0}, length: {1}", Width.ToString(), Length.ToString());
+            return string.Format(ENVELOPE_WIDTH_LENGTH, Width.ToString(), Length.ToString());
         }
 
-        public double Width { get => _width; protected set => _width = value; }
-        public double Length { get => _length; protected set => _length = value; }
-
-        private double _width;
-        private double _length;
-
+        
     }
 }
