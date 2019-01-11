@@ -11,33 +11,33 @@ namespace BL
     {
         #region Constants
 
-        public const string ENVELOPES_NOT_PLAСEABLE = "Objects can't be plased in each other";
-        public const string IS_IN = "is in";
+        public const string ENVELOPES_NOT_PLAСEABLE = "Objects can't be plased in each other ";
+        public const string IS_IN = " is in ";
 
         #endregion
 
 
-        private bool CanPlaceOneEnvelopeInOther(Envelope targetEnvelope, Envelope pushedEnvelope)
+        private bool CanPlaceOneEnvelopeInOther(Envelope pushedEnvelope, Envelope targetEnvelope)
         {
             bool isOk = false;
-            if (targetEnvelope.CompareTo(pushedEnvelope) == 1)
+            if (pushedEnvelope.CompareTo(targetEnvelope) == 1)
             {
                 isOk = true;
             }
-            else if (IsReversedSidesPlaceable(targetEnvelope, pushedEnvelope))
+            else if (IsReversedSidesPlaceable(pushedEnvelope, targetEnvelope))
             {
                 isOk = true;
             }
             return isOk;
         }
 
-        private bool IsReversedSidesPlaceable(Envelope targetEnvelope, Envelope pushedEnvelope)
+        private bool IsReversedSidesPlaceable(Envelope pushedEnvelope, Envelope targetEnvelope)
         {
             bool isOk = false;
 
-            Envelope sidesChangedEnvelope = new Envelope(pushedEnvelope.Length, pushedEnvelope.Width);
+            Envelope sidesChangedEnvelope = new Envelope(targetEnvelope.Length, targetEnvelope.Width);
 
-            if (targetEnvelope.CompareTo(sidesChangedEnvelope) == 1)
+            if (pushedEnvelope.CompareTo(sidesChangedEnvelope) == 1)
             {
                 isOk = true;
             }
@@ -65,7 +65,7 @@ namespace BL
                 }
                 else
                 {
-                    message = ENVELOPES_NOT_PLAСEABLE;
+                    message = ENVELOPES_NOT_PLAСEABLE + first.ToString() + second.ToString();
                 }
             }
 

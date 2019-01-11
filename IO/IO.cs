@@ -14,20 +14,24 @@ namespace IOHandler
         public const int CLOSING_ITERATION_TIME = 800;
         public const int CLOSING_ITERATIONS_COUNT = 3;
         public const string SET_ENVELOPE = "Would you like to set envelopes?(y/yes?...) ";
+        public const string PRESS_ANY_KEY = "Press any key...";
+        public const string CLOSING_MESSAGE = "Closing app";
+        public const string USER_ANSWER_Y = "y";
+        public const string USER_ANSWER_YES = "yes";
 
         #endregion
 
-        public void ShowRules( string rules)
+        public void ShowRules(string rules)
         {
             Console.WriteLine(rules);
-            Console.WriteLine("Press any key...");
+            Console.WriteLine(PRESS_ANY_KEY);
 
             Console.ReadKey();
         }
 
         public void CloseApp()
         {
-            Console.Write("Closing app");
+            Console.Write(CLOSING_MESSAGE);
 
             for (int i = 0; i < CLOSING_ITERATIONS_COUNT; i++)
             {
@@ -42,10 +46,9 @@ namespace IOHandler
 
             Console.WriteLine(SET_ENVELOPE);
 
-            string answer = Console.ReadLine().ToLower();
+            string answer = Console.ReadLine().ToLower().Trim();
 
-
-            if (answer == "y" || answer == "yes")
+            if (answer == USER_ANSWER_Y || answer == USER_ANSWER_YES)
             {
                 isAnswerYes = true;
             }
@@ -69,6 +72,8 @@ namespace IOHandler
         public void ShowCompareResult(string s)
         {
             Console.WriteLine(s);
+            Console.WriteLine(PRESS_ANY_KEY);
+            Console.ReadKey();
         }
     }
 }

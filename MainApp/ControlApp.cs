@@ -15,7 +15,7 @@ namespace MainApp
         public const string INPUT_WIDTH = "Write envelope width (e.g. 12,3):";
         public const string INPUT_LENGTH = "Write envelope length (e.g. 12,3):";
         public const string RULES = "You need to enter 2 envelops, that you would like to place in each other.\nEnter width and length of each envelope, step by step, then I'll compare them";
-        
+
         #endregion
 
         #region Private Fields        
@@ -23,7 +23,8 @@ namespace MainApp
         private IO _consoleViewer = new IO();
         private double[] _dbArr;
         private EnvelopesAnalyser analyser = new EnvelopesAnalyser();
-       
+        private InsertedArgsValidator validator = new InsertedArgsValidator();
+
 
         #endregion
 
@@ -36,34 +37,60 @@ namespace MainApp
         {
             if (args.Length <= 0)
             {
-               _consoleViewer.ShowRules(RULES);
-                StartNewIteration();
+                _consoleViewer.ShowRules(RULES);
+
             }
             else if (args.Length >= 1)
             {
-                _dbArr = CheckInsertedString(args);
+                _dbArr = validator.CheckInsertedString(args);
 
+                if (_dbArr.Length < 4)
+                {
+                    _consoleViewer.ShowRules(RULES);
+                }
+                else
+                {
+                    CompareInsertedArgs();
+                }
             }
+
+            StartNewIteration();
+        }
+
+        private void CompareInsertedArgs()
+        {
+            
+            for (int i = 0; _dbArr.Length - i >= 4; i+=4)
+            {
+                CompareEnvelopes(new Envelope(_dbArr[0 + i], _dbArr[1 + i]), new Envelope(_dbArr[2 + i], _dbArr[3 + i]));
+            }           
 
         }
 
+
+
         private void StartNewIteration()
         {
-            
-            if (_consoleViewer.DoesUserWantEnterENvelope())
+            bool isOk = true;
+            do
             {
-                CompareEnvelopes(GetNewEnvelop(), GetNewEnvelop());
-            }
-            else
-            {
-                _consoleViewer.CloseApp();
-            }
+                if (_consoleViewer.DoesUserWantEnterENvelope())
+                {
+                    CompareEnvelopes(GetNewEnvelop(), GetNewEnvelop());
+                }
+                else
+                {
+                    _consoleViewer.CloseApp();
+                    isOk = false;
+                }
+
+            } while (isOk);
 
         }
 
 
         private void CompareEnvelopes(Envelope env1, Envelope env2)
-        {            
+        {
             _consoleViewer.ShowCompareResult(analyser.CompareEnvelopes(env1, env2));
         }
 
@@ -73,21 +100,6 @@ namespace MainApp
 
         }
 
-        private double[] CheckInsertedString(string[] args)
-        {
 
-            double[] dblArray = new double[args.Length];
-
-            int i = 0;
-            foreach (string c in args)
-            {
-                if (double.TryParse(c, out dblArray[i]))
-                {
-                    i++;
-                }
-
-            }
-            return dblArray;
-        }
     }
 }
