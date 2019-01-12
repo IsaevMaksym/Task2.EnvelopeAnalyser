@@ -66,9 +66,7 @@ namespace MainApp
             }           
 
         }
-
-
-
+               
         private void StartNewIteration()
         {
             bool isOk = true;
@@ -87,8 +85,7 @@ namespace MainApp
             } while (isOk);
 
         }
-
-
+        
         private void CompareEnvelopes(Envelope env1, Envelope env2)
         {
             _consoleViewer.ShowCompareResult(analyser.CompareEnvelopes(env1, env2));
@@ -99,7 +96,6 @@ namespace MainApp
             return new Envelope(_consoleViewer.GetUserSide(INPUT_WIDTH), _consoleViewer.GetUserSide(INPUT_LENGTH));
 
         }
-
-
+        
     }
 }

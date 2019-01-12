@@ -15,8 +15,7 @@ namespace BL
         public const string IS_IN = " is in ";
 
         #endregion
-
-
+        
         private bool CanPlaceOneEnvelopeInOther(Envelope pushedEnvelope, Envelope targetEnvelope)
         {
             bool isOk = false;

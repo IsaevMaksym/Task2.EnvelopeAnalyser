@@ -8,7 +8,6 @@ namespace IOHandler
 {
     public class IO
     {
-
         #region Const
 
         public const int CLOSING_ITERATION_TIME = 800;

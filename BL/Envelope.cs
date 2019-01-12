@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BL
 {
 
-    public sealed class Envelope : IComparable
+   public sealed class Envelope : IComparable
     {
         public const string ENVELOPE_WIDTH_LENGTH = "Envelope width: {0}, length: {1} ";
 
@@ -48,7 +48,6 @@ namespace BL
         {
             return string.Format(ENVELOPE_WIDTH_LENGTH, Width.ToString(), Length.ToString());
         }
-
-
+        
     }
 }

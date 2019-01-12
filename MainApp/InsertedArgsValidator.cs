@@ -8,7 +8,6 @@ namespace MainApp
 {
     class InsertedArgsValidator
     {
-
         public double[] CheckInsertedString(string[] args)
         {
 
@@ -29,8 +28,6 @@ namespace MainApp
             }
             return dblArray;
         }
-
-
 
     }
 }
