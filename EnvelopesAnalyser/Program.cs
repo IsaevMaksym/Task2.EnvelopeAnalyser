@@ -13,7 +13,7 @@ namespace EnvelopesAnalyser
         static void Main(string[] args)
         {
 
-            IO viewer = new IO();
+            IImputOutput viewer = new IO();
             ControlApp app = new ControlApp(viewer);
             app.Start(args);
 

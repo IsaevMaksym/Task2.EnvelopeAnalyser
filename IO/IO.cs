@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MainApp;
 
 namespace IOHandler
 {
-    public class IO
+    public class IO: IImputOutput
     {
         #region Const
 
@@ -39,7 +40,7 @@ namespace IOHandler
             }
         }
 
-        public bool DoesUserWantEnterENvelope()
+        public bool DoesUserWantEnterEnvelope()
         {
             bool isAnswerYes = false;
 

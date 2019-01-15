@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlApp.cs" />
+    <Compile Include="IImputOutput.cs" />
     <Compile Include="InsertedArgsValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -49,10 +50,6 @@
     <ProjectReference Include="..\BL\BL.csproj">
       <Project>{c92cbd7c-294c-41ca-92e4-f7a7d4ddb82b}</Project>
       <Name>BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IO\IOHandler.csproj">
-      <Project>{23367005-e3bd-4402-b0bb-63c8ccf43b8f}</Project>
-      <Name>IOHandler</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

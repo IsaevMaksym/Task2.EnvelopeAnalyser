@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IOHandler;
 using BL;
 
 
@@ -20,7 +19,7 @@ namespace MainApp
 
         #region Private Fields        
 
-        private IO _consoleViewer = new IO();
+        private IImputOutput _consoleViewer;
         private double[] _dbArr;
         private EnvelopesAnalyser analyser = new EnvelopesAnalyser();
         private InsertedArgsValidator validator = new InsertedArgsValidator();
@@ -28,7 +27,7 @@ namespace MainApp
 
         #endregion
 
-        public ControlApp(IO viewer)
+        public ControlApp(IImputOutput viewer)
         {
             _consoleViewer = viewer;
         }
@@ -72,7 +71,7 @@ namespace MainApp
             bool isOk = true;
             do
             {
-                if (_consoleViewer.DoesUserWantEnterENvelope())
+                if (_consoleViewer.DoesUserWantEnterEnvelope())
                 {
                     CompareEnvelopes(GetNewEnvelop(), GetNewEnvelop());
                 }
