@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MainApp;
-
 namespace IOHandler
 {
-    public class IO: IImputOutput
+    public class ConsoleOperations: IImputOutput
     {
         #region Const
 
-        public const int CLOSING_ITERATION_TIME = 800;
-        public const int CLOSING_ITERATIONS_COUNT = 3;
-        public const string SET_ENVELOPE = "Would you like to set envelopes?(y/yes?...) ";
-        public const string PRESS_ANY_KEY = "Press any key...";
-        public const string CLOSING_MESSAGE = "Closing app";
-        public const string USER_ANSWER_Y = "y";
-        public const string USER_ANSWER_YES = "yes";
+        private const int CLOSING_ITERATION_TIME = 800;
+        private const int CLOSING_ITERATIONS_COUNT = 3;
+        private const string SET_ENVELOPE = "Would you like to set envelopes?(y/yes?...) ";
+        private const string PRESS_ANY_KEY = "Press any key...";
+        private const string CLOSING_MESSAGE = "Closing app";
+        private const string USER_ANSWER_Y = "y";
+        private const string USER_ANSWER_YES = "yes";
 
         #endregion
 
-        public void ShowRules(string rules)
+        public void ShowMessage(string rules)
         {
             Console.WriteLine(rules);
             Console.WriteLine(PRESS_ANY_KEY);
@@ -68,12 +66,6 @@ namespace IOHandler
 
             return value;
         }
-
-        public void ShowCompareResult(string s)
-        {
-            Console.WriteLine(s);
-            Console.WriteLine(PRESS_ANY_KEY);
-            Console.ReadKey();
-        }
+                
     }
 }

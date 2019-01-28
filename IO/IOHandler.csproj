@@ -41,14 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IO.cs" />
+    <Compile Include="IImputOutput.cs" />
+    <Compile Include="ConsoleOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MainApp\MainController.csproj">
-      <Project>{5642cc1e-e723-4c2e-9be9-ef9d8031713a}</Project>
-      <Name>MainController</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

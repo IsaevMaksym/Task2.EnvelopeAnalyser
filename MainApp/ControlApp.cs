@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BL;
+using IOHandler;
 
 
 namespace MainApp
@@ -11,21 +12,25 @@ namespace MainApp
     public class ControlApp
     {
         #region Const
-        public const string INPUT_WIDTH = "Write envelope width (e.g. 12,3):";
-        public const string INPUT_LENGTH = "Write envelope length (e.g. 12,3):";
-        public const string RULES = "You need to enter 2 envelops, that you would like to place in each other.\nEnter width and length of each envelope, step by step, then I'll compare them";
+
+        private const string INPUT_WIDTH = "Write envelope width (e.g. 12,3):";
+        private const string INPUT_LENGTH = "Write envelope length (e.g. 12,3):";
+        private const string RULES = "You need to enter 2 envelops, that you would like to place in each other.\nEnter width and length of each envelope, step by step, then I'll compare them";
 
         #endregion
 
         #region Private Fields        
 
-        private IImputOutput _consoleViewer;
-        private double[] _dbArr;
+        private IImputOutput _consoleViewer;       
         private EnvelopesAnalyser analyser = new EnvelopesAnalyser();
         private InsertedArgsValidator validator = new InsertedArgsValidator();
 
-
         #endregion
+
+        public ControlApp()
+            :this(new ConsoleOperations())
+        {
+        }
 
         public ControlApp(IImputOutput viewer)
         {
@@ -34,34 +39,34 @@ namespace MainApp
 
         public void Start(string[] args)
         {
+            double[] argsParsedNumArr;
+
             if (args.Length <= 0)
             {
-                _consoleViewer.ShowRules(RULES);
-
+                _consoleViewer.ShowMessage(RULES);
             }
             else if (args.Length >= 1)
             {
-                _dbArr = validator.CheckInsertedString(args);
+                argsParsedNumArr = validator.CheckInsertedString(args);
 
-                if (_dbArr.Length < 4)
+                if (argsParsedNumArr.Length < 4)
                 {
-                    _consoleViewer.ShowRules(RULES);
+                    _consoleViewer.ShowMessage(RULES);
                 }
                 else
                 {
-                    CompareInsertedArgs();
+                    ShowComparedResult(argsParsedNumArr);
                 }
             }
 
             StartNewIteration();
         }
 
-        private void CompareInsertedArgs()
-        {
-            
-            for (int i = 0; _dbArr.Length - i >= 4; i+=4)
+        private void ShowComparedResult(double[] numArr)
+        {            
+            for (int i = 0; numArr.Length - i >= 4; i+=4)
             {
-                CompareEnvelopes(new Envelope(_dbArr[0 + i], _dbArr[1 + i]), new Envelope(_dbArr[2 + i], _dbArr[3 + i]));
+                analyser.CompareEnvelopes(new Envelope(numArr[0 + i], numArr[1 + i]), new Envelope(numArr[2 + i], numArr[3 + i]));
             }           
 
         }
@@ -69,11 +74,12 @@ namespace MainApp
         private void StartNewIteration()
         {
             bool isOk = true;
+
             do
             {
                 if (_consoleViewer.DoesUserWantEnterEnvelope())
                 {
-                    CompareEnvelopes(GetNewEnvelop(), GetNewEnvelop());
+                    _consoleViewer.ShowMessage(analyser.CompareEnvelopes(GetNewEnvelop(), GetNewEnvelop()));                   
                 }
                 else
                 {
@@ -84,16 +90,10 @@ namespace MainApp
             } while (isOk);
 
         }
-        
-        private void CompareEnvelopes(Envelope env1, Envelope env2)
-        {
-            _consoleViewer.ShowCompareResult(analyser.CompareEnvelopes(env1, env2));
-        }
-
+                
         private Envelope GetNewEnvelop()
         {
             return new Envelope(_consoleViewer.GetUserSide(INPUT_WIDTH), _consoleViewer.GetUserSide(INPUT_LENGTH));
-
         }
         
     }

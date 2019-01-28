@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="EnvelopesAnalyser.cs" />
     <Compile Include="Envelope.cs" />
+    <Compile Include="InsertedArgsValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,8 +11,8 @@ namespace BL
     {
         #region Constants
 
-        public const string ENVELOPES_NOT_PLAСEABLE = "Objects can't be plased in each other ";
-        public const string IS_IN = " is in ";
+        private const string ENVELOPES_NOT_PLAСEABLE = "Objects can't be plased in each other ";
+        private const string IS_IN = " is in ";
 
         #endregion
         
@@ -32,16 +32,10 @@ namespace BL
 
         private bool IsReversedSidesPlaceable(Envelope pushedEnvelope, Envelope targetEnvelope)
         {
-            bool isOk = false;
-
             Envelope sidesChangedEnvelope = new Envelope(targetEnvelope.Length, targetEnvelope.Width);
 
-            if (pushedEnvelope.CompareTo(sidesChangedEnvelope) == 1)
-            {
-                isOk = true;
-            }
-
-            return isOk;
+            return (pushedEnvelope.CompareTo(sidesChangedEnvelope) == 1);
+            
         }
 
         public string CompareEnvelopes(Envelope first, Envelope second)

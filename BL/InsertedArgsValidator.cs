@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainApp
+namespace BL
 {
-    class InsertedArgsValidator
+    public class InsertedArgsValidator
     {
         public double[] CheckInsertedString(string[] args)
         {
@@ -18,11 +18,11 @@ namespace MainApp
             {
                 if (double.TryParse(c, out dblArray[i]))
                 {
-                    if (dblArray[i]!=0)
+                    if (dblArray[i] != 0)
                     {
                         i++;
                     }
-                    
+
                 }
 
             }
