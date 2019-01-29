@@ -8,24 +8,21 @@ namespace EnvelopBL
 {
     public class InsertedArgsValidator
     {
-        public double[] CheckInsertedString(string[] args)
+        public double[] ParseInsertedString(string[] args)
         {
-            double[] dblArray = new double[args.Length];
+            Queue<double> numberArr = new Queue<double>();
 
-            int i = 0;
+            double tmp;
+
             foreach (string c in args)
             {
-                if (double.TryParse(c, out dblArray[i]))
+                if (double.TryParse(c, out tmp))
                 {
-                    if (dblArray[i] != 0)
-                    {
-                        i++;
-                    }
-
+                    numberArr.Enqueue(tmp);
                 }
-
             }
-            return dblArray;
+
+            return numberArr.ToArray<double>() ;
         }
 
     }

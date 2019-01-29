@@ -24,12 +24,7 @@ namespace EnvelopBL
 
         private CompareResult FormEnvelopesComparisonResultMessage(Envelope first, Envelope second)
         {
-
-            if ((first.Length <= 0) || (first.Width <= 0) || (second.Length <= 0) || (second.Width<= 0))
-            {
-
-                return CompareResult.NotComparable;
-            }
+                       
             if (CanPlaceOneEnvelopeInOther(first, second))
             {
 

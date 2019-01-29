@@ -25,9 +25,9 @@ namespace EnvelopeBL.Test
             //Arrange
             Envelope first = new Envelope(height1, width1);
             Envelope second = new Envelope(height2, width2);
+            EnvelopesAnalyser analyser = new EnvelopesAnalyser();
 
             //Act
-            EnvelopesAnalyser analyser = new EnvelopesAnalyser();
             analyser.CompareEnvelopes(first, second);
 
             //Assert

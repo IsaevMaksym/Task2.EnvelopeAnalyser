@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EnvelopBL
 {
 
-   public sealed class Envelope : IComparable<Envelope>
+    public sealed class Envelope : IComparable<Envelope>
     {
         public const string ENVELOPE_WIDTH_LENGTH = "Envelope width: {0}, length: {1} ";
 
@@ -18,20 +18,38 @@ namespace EnvelopBL
 
         #endregion
 
-        public double Width { get => _width; set => _width = value; }
-        public double Length { get => _length; set => _length = value; }
+        public double Width
+        {
+            get
+            {
+                return _width;
+            }
+        }
+
+        public double Length
+        {
+            get
+            {
+                return _length;
+            }
+        }
 
         public Envelope(double width, double length)
         {
-            this._width = width;
-            this._length = length;
+            _width = width;
+            _length = length;
         }
 
         public int CompareTo(Envelope other)
         {
-            int compareResult = -1;            
+            int compareResult = -1;
 
-            if (this == other)
+            if ((other == null) || (this.Length <= 0) || (this.Width <= 0) || (other.Length <= 0) || (other.Width <= 0))
+            {
+                return compareResult;
+            }
+
+            if ((this.Length == other.Length) && (this.Width == other.Width))
             {
                 compareResult = 0;
             }
@@ -47,6 +65,6 @@ namespace EnvelopBL
         {
             return string.Format(ENVELOPE_WIDTH_LENGTH, Width.ToString(), Length.ToString());
         }
-        
+
     }
 }

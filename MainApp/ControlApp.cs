@@ -47,7 +47,7 @@ namespace MainApp
             }
             else if (args.Length >= 1)
             {
-                argsParsedNumArr = validator.CheckInsertedString(args);
+                argsParsedNumArr = validator.ParseInsertedString(args);
 
                 if (argsParsedNumArr.Length < 4)
                 {
