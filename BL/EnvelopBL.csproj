@@ -46,5 +46,11 @@
     <Compile Include="InsertedArgsValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Resourses\Resourses.csproj">
+      <Project>{bac98777-f44e-42d8-98ce-a6abfe957c37}</Project>
+      <Name>Resourses</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

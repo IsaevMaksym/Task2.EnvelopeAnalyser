@@ -45,13 +45,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BL\BL.csproj">
+    <ProjectReference Include="..\BL\EnvelopBL.csproj">
       <Project>{c92cbd7c-294c-41ca-92e4-f7a7d4ddb82b}</Project>
-      <Name>BL</Name>
+      <Name>EnvelopBL</Name>
     </ProjectReference>
     <ProjectReference Include="..\IO\IOHandler.csproj">
       <Project>{23367005-e3bd-4402-b0bb-63c8ccf43b8f}</Project>
       <Name>IOHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resourses\Resourses.csproj">
+      <Project>{BAC98777-F44E-42D8-98CE-A6ABFE957C37}</Project>
+      <Name>Resourses</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

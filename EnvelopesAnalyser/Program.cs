@@ -12,14 +12,6 @@ namespace EnvelopesAnalyser
     {
         static void Main(string[] args)
         {
-            args = new string[]
-            {
-                "1",
-                "2",
-                "3",
-                "4"
-            };
-
             IImputOutput viewer = new ConsoleOperations();
             ControlApp app = new ControlApp(viewer);
             app.Start(args);

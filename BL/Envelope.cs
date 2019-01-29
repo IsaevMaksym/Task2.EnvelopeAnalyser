@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL
+namespace EnvelopBL
 {
 
-   public sealed class Envelope : IComparable
+   public sealed class Envelope : IComparable<Envelope>
     {
         public const string ENVELOPE_WIDTH_LENGTH = "Envelope width: {0}, length: {1} ";
 
@@ -27,10 +27,9 @@ namespace BL
             this._length = length;
         }
 
-        public int CompareTo(object obj)
+        public int CompareTo(Envelope other)
         {
-            int compareResult = -1;
-            Envelope other = obj as Envelope;
+            int compareResult = -1;            
 
             if (this == other)
             {

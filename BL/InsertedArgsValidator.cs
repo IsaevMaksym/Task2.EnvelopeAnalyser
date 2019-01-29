@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL
+namespace EnvelopBL
 {
     public class InsertedArgsValidator
     {
         public double[] CheckInsertedString(string[] args)
         {
-
             double[] dblArray = new double[args.Length];
 
             int i = 0;

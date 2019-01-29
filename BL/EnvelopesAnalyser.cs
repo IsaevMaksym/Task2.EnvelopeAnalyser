@@ -3,31 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Resourses;
 
 
-namespace BL
+namespace EnvelopBL
 {
     public class EnvelopesAnalyser
     {
-        #region Constants
+        public CompareResult CompareEnvelopes(Envelope first, Envelope second)
+        {
 
-        private const string ENVELOPES_NOT_PLAСEABLE = "Objects can't be plased in each other ";
-        private const string IS_IN = " is in ";
+            if (first == null || second == null)
+            {
 
-        #endregion
-        
+                return CompareResult.AreEmpty;
+            }
+
+            return FormEnvelopesComparisonResultMessage(first, second);
+        }
+
+        private CompareResult FormEnvelopesComparisonResultMessage(Envelope first, Envelope second)
+        {
+
+            if ((first.Length <= 0) || (first.Width <= 0) || (second.Length <= 0) || (second.Width<= 0))
+            {
+
+                return CompareResult.NotComparable;
+            }
+            if (CanPlaceOneEnvelopeInOther(first, second))
+            {
+
+                return CompareResult.FirstInSecond;
+            }
+            else if (CanPlaceOneEnvelopeInOther(second, first))
+            {
+
+                return CompareResult.SecondInFirst;
+            }
+            else
+            {
+
+                return CompareResult.NotComparable;
+            }
+        }
+
         private bool CanPlaceOneEnvelopeInOther(Envelope pushedEnvelope, Envelope targetEnvelope)
         {
-            bool isOk = false;
-            if (pushedEnvelope.CompareTo(targetEnvelope) == 1)
-            {
-                isOk = true;
-            }
-            else if (IsReversedSidesPlaceable(pushedEnvelope, targetEnvelope))
-            {
-                isOk = true;
-            }
-            return isOk;
+
+            return ((pushedEnvelope.CompareTo(targetEnvelope) == 1)
+                || (IsReversedSidesPlaceable(pushedEnvelope, targetEnvelope)));
         }
 
         private bool IsReversedSidesPlaceable(Envelope pushedEnvelope, Envelope targetEnvelope)
@@ -35,34 +59,6 @@ namespace BL
             Envelope sidesChangedEnvelope = new Envelope(targetEnvelope.Length, targetEnvelope.Width);
 
             return (pushedEnvelope.CompareTo(sidesChangedEnvelope) == 1);
-            
-        }
-
-        public string CompareEnvelopes(Envelope first, Envelope second)
-        {
-            string message = "";
-            if (first == null || second == null)
-            {
-                message = "One or more objects is null";
-            }
-
-            else
-            {
-                if (CanPlaceOneEnvelopeInOther(first, second))
-                {
-                    message = first.ToString() + IS_IN + second.ToString();
-                }
-                else if (CanPlaceOneEnvelopeInOther(second, first))
-                {
-                    message = second.ToString() + IS_IN + first.ToString();
-                }
-                else
-                {
-                    message = ENVELOPES_NOT_PLAСEABLE + first.ToString() + second.ToString();
-                }
-            }
-
-            return message;
 
         }
 

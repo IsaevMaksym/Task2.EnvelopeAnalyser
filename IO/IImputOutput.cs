@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Resourses;
 
 namespace IOHandler
 {
     public interface IImputOutput
     {
-        void ShowMessage(string rules);
+        void ShowMessage(string msg);
+
+        void ShowMessage(CompareResult result);
 
         void CloseApp();
 

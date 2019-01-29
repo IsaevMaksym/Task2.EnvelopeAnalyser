@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Resourses;
+
 namespace IOHandler
 {
-    public class ConsoleOperations: IImputOutput
+    public class ConsoleOperations : IImputOutput
     {
         #region Const
 
@@ -16,6 +18,10 @@ namespace IOHandler
         private const string CLOSING_MESSAGE = "Closing app";
         private const string USER_ANSWER_Y = "y";
         private const string USER_ANSWER_YES = "yes";
+        private const string ENVELOPES_NOT_PLAСEABLE = "Objects can't be plased in each other ";
+        private const string NULL_OBJECTS = "One or more objects is null";
+        private const string FIRST_IN_SECOND = "First envelop is in second";
+        private const string SECOND_In_FIRST = "Second envelop is in First";
 
         #endregion
 
@@ -66,6 +72,29 @@ namespace IOHandler
 
             return value;
         }
-                
+
+        public void ShowMessage(CompareResult result)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            switch (result)
+            {
+                case CompareResult.AreEmpty:
+                    builder.Append(NULL_OBJECTS);
+                    break;
+                case CompareResult.FirstInSecond:
+                    builder.Append(FIRST_IN_SECOND);
+                    break;
+                case CompareResult.SecondInFirst:
+                    builder.Append(SECOND_In_FIRST);
+                    break;
+                case CompareResult.NotComparable:
+                default:
+                    builder.Append(ENVELOPES_NOT_PLAСEABLE);
+                    break;
+            }
+
+            this.ShowMessage(builder.ToString());
+        }
     }
 }

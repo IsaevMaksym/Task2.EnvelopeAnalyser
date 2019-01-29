@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BL;
+using EnvelopBL;
 using IOHandler;
 
 
@@ -66,7 +66,9 @@ namespace MainApp
         {            
             for (int i = 0; numArr.Length - i >= 4; i+=4)
             {
-                analyser.CompareEnvelopes(new Envelope(numArr[0 + i], numArr[1 + i]), new Envelope(numArr[2 + i], numArr[3 + i]));
+                _consoleViewer.ShowMessage(
+                    analyser.CompareEnvelopes(
+                        new Envelope(numArr[0 + i], numArr[1 + i]), new Envelope(numArr[2 + i], numArr[3 + i])));
             }           
 
         }

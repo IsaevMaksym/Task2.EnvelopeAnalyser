@@ -5,11 +5,15 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program", "EnvelopesAnalyser\Program.csproj", "{297C55C0-859C-4E30-AE63-D2D529C8194F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{C92CBD7C-294C-41CA-92E4-F7A7D4DDB82B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvelopBL", "BL\EnvelopBL.csproj", "{C92CBD7C-294C-41CA-92E4-F7A7D4DDB82B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainController", "MainApp\MainController.csproj", "{5642CC1E-E723-4C2E-9BE9-EF9D8031713A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOHandler", "IO\IOHandler.csproj", "{23367005-E3BD-4402-B0BB-63C8CCF43B8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvelopeBL.Test", "EnvelopeBL.Test\EnvelopeBL.Test.csproj", "{559C27DB-5947-42F5-B1C9-530B8D9A6BF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resourses", "Resourses\Resourses.csproj", "{BAC98777-F44E-42D8-98CE-A6ABFE957C37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{23367005-E3BD-4402-B0BB-63C8CCF43B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23367005-E3BD-4402-B0BB-63C8CCF43B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23367005-E3BD-4402-B0BB-63C8CCF43B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559C27DB-5947-42F5-B1C9-530B8D9A6BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559C27DB-5947-42F5-B1C9-530B8D9A6BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559C27DB-5947-42F5-B1C9-530B8D9A6BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559C27DB-5947-42F5-B1C9-530B8D9A6BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAC98777-F44E-42D8-98CE-A6ABFE957C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC98777-F44E-42D8-98CE-A6ABFE957C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC98777-F44E-42D8-98CE-A6ABFE957C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC98777-F44E-42D8-98CE-A6ABFE957C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
