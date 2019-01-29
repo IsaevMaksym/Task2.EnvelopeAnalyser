@@ -19,12 +19,12 @@ namespace EnvelopBL
                 return CompareResult.AreEmpty;
             }
 
-            return FormEnvelopesComparisonResultMessage(first, second);
+            return GetEnvelopeComparisonResult(first, second);
         }
 
-        private CompareResult FormEnvelopesComparisonResultMessage(Envelope first, Envelope second)
+        private CompareResult GetEnvelopeComparisonResult(Envelope first, Envelope second)
         {
-                       
+           
             if (CanPlaceOneEnvelopeInOther(first, second))
             {
 

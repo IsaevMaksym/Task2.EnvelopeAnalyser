@@ -13,11 +13,12 @@ namespace IOHandler
 
         void ShowMessage(CompareResult result);
 
-        void CloseApp();
+        void ShowClosingMessage();
 
         bool DoesUserWantEnterEnvelope();
 
         double GetUserSide(string OutputPhrase);
-       
+
+        void MakePause();
     }
 }

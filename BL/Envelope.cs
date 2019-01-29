@@ -9,8 +9,6 @@ namespace EnvelopBL
 
     public sealed class Envelope : IComparable<Envelope>
     {
-        public const string ENVELOPE_WIDTH_LENGTH = "Envelope width: {0}, length: {1} ";
-
         #region Private Fields
 
         private double _width;
@@ -44,11 +42,11 @@ namespace EnvelopBL
         {
             int compareResult = -1;
 
-            if ((other == null) || (this.Length <= 0) || (this.Width <= 0) || (other.Length <= 0) || (other.Width <= 0))
+            if ((other == null) || (this.Length <= 0) || (this.Width <= 0)
+                || (other.Length <= 0) || (other.Width <= 0))
             {
                 return compareResult;
             }
-
             if ((this.Length == other.Length) && (this.Width == other.Width))
             {
                 compareResult = 0;
@@ -59,11 +57,6 @@ namespace EnvelopBL
             }
 
             return compareResult;
-        }
-
-        public override string ToString()
-        {
-            return string.Format(ENVELOPE_WIDTH_LENGTH, Width.ToString(), Length.ToString());
         }
 
     }

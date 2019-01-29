@@ -13,27 +13,31 @@ namespace IOHandler
 
         private const int CLOSING_ITERATION_TIME = 800;
         private const int CLOSING_ITERATIONS_COUNT = 3;
-        private const string SET_ENVELOPE = "Would you like to set envelopes?(y/yes?...) ";
-        private const string PRESS_ANY_KEY = "Press any key...";
         private const string CLOSING_MESSAGE = "Closing app";
+        private const string ENVELOPES_NOT_PLAСEABLE = "Objects can't be plased in each other ";
+        private const string FIRST_IN_SECOND = "First envelop is in second";
+        private const string NULL_OBJECTS = "One or more objects is null";
+        private const string PRESS_ANY_KEY = "Press any key...";
+        private const string SECOND_IN_FIRST = "Second envelop is in First";
+        private const string SET_ENVELOPE = "Would you like to set envelopes?(y/yes?...) ";
         private const string USER_ANSWER_Y = "y";
         private const string USER_ANSWER_YES = "yes";
-        private const string ENVELOPES_NOT_PLAСEABLE = "Objects can't be plased in each other ";
-        private const string NULL_OBJECTS = "One or more objects is null";
-        private const string FIRST_IN_SECOND = "First envelop is in second";
-        private const string SECOND_In_FIRST = "Second envelop is in First";
 
         #endregion
 
-        public void ShowMessage(string rules)
+        public void ShowMessage(string message)
         {
-            Console.WriteLine(rules);
+            Console.WriteLine(message);           
+        }
+
+        public void MakePause()
+        {
             Console.WriteLine(PRESS_ANY_KEY);
 
             Console.ReadKey();
         }
 
-        public void CloseApp()
+        public void ShowClosingMessage()
         {
             Console.Write(CLOSING_MESSAGE);
 
@@ -66,7 +70,6 @@ namespace IOHandler
 
             do
             {
-                Console.Clear();
                 Console.Write(OutputPhrase);
             } while (!double.TryParse(Console.ReadLine(), out value));
 
@@ -86,7 +89,7 @@ namespace IOHandler
                     builder.Append(FIRST_IN_SECOND);
                     break;
                 case CompareResult.SecondInFirst:
-                    builder.Append(SECOND_In_FIRST);
+                    builder.Append(SECOND_IN_FIRST);
                     break;
                 case CompareResult.NotComparable:
                 default:
@@ -96,5 +99,6 @@ namespace IOHandler
 
             this.ShowMessage(builder.ToString());
         }
+                
     }
 }

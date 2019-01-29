@@ -8,10 +8,10 @@ namespace Resourses
 {
     public enum CompareResult
     {
-        AreEmpty = 0,
-        FirstInSecond=1,
-        SecondInFirst=2,
-        NotComparable=3,     
+        AreEmpty,
+        FirstInSecond,
+        SecondInFirst,
+        NotComparable,     
 
     }
 }

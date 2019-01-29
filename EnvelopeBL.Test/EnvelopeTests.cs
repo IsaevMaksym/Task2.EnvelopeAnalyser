@@ -15,8 +15,7 @@ namespace EnvelopeBL.Test
         [DataRow(13.0, 5.0, 10.5, 10.1, -1)]
         [DataRow(0, 0, 0, 0, -1)]
         [DataRow(0, 0, 0, 0, -1)]
-
-        public void Compare_EnvelopeToOtherEnvelope(double width1, double length1, double width2, double length2, int expected)
+        public void CompareEnvelopeToOtherEnvelopeTests(double width1, double length1, double width2, double length2, int expected)
         {
             //Arrange
             Envelope first = new Envelope(width1, length1);
